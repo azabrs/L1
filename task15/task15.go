@@ -1,8 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
-
+	"unsafe"
 )
 
 var justString string
@@ -20,10 +21,15 @@ func createHugeString(size int) string {
 
 
 func someFunc() {
-  v := createHugeString(1 << 10)
-  justString = string(append([]rune{}, []rune(v)[:100]...))
+	v := createHugeString(1 << 10)
+  	justString = string(append([]rune{}, []rune(v)[:100]...))
+  	//justString = v[:100]
+	fmt.Println(unsafe.StringData(v))
+	
+
 }
 
 func main() {
-  someFunc()
+	someFunc()
+	fmt.Println(unsafe.StringData(justString))
 }
