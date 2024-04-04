@@ -5,11 +5,13 @@ import (
 	"sync"
 )
 
+// counter with mutex for parralel calculations
 type inc_type struct{
 	sync.RWMutex
 	inc int
 }
 
+//constructor 
 func New() inc_type{
 	return inc_type{
 		inc : 0,
@@ -17,9 +19,9 @@ func New() inc_type{
 }
 
 func (i *inc_type)Inc(){
-	i.Lock()
+	i.Lock()//block access for other goroutines to inc
 	i.inc += 1
-	i.Unlock()
+	i.Unlock()//unloock acces
 }
 
 func main(){

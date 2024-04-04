@@ -16,14 +16,14 @@ func New_data() Data_map{
 		data: make(map[int]int),
 	}
 }
-
+//competitive read from map
 func(d *Data_map) compet_read(key int) int{
 	d.RLock()
 	buf := d.data[key]
 	d.RUnlock()
 	return buf
 }
-
+//competitive write in map
 func(d *Data_map)compet_write(key, val int){
 	d.Lock()
 	d.data[key] = val
@@ -33,6 +33,7 @@ func(d *Data_map)compet_write(key, val int){
 func main(){
 	data := New_data()
 	var wg sync.WaitGroup
+	// write to map
 	wg.Add(1)
 	go func(){
 
@@ -43,7 +44,7 @@ func main(){
 
 		}
 	}()
-
+	// read from map
 	wg.Add(1)
 	go func(){
 
@@ -54,7 +55,7 @@ func main(){
 		}
 	}()
 
-
+	// read from map
 	wg.Add(1)
 	go func(){
 

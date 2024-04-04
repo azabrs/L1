@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// create ser
+// create set with only unique element
 func set(s []string) []string {
 	var res []string
 	uniq := make(map[string]bool)

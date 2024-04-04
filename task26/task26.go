@@ -4,10 +4,10 @@ import "fmt"
 
 func isUniq(str string) bool{
 	dic := make(map[rune]bool)
-	for _, val := range str{
+	for _, val := range str{//iterate over rune
 		dic[val] = true
-	}
-	return len(str) == len(dic)
+	}// create set
+	return len(str) == len(dic)// compare len of set and len of string
 }
 
 func main(){

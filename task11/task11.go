@@ -3,13 +3,13 @@ package main
 import "fmt"
 
 func intersection(set1, set2 []int) []int{
-	intersec := make(map[int] bool)
+	intersec := make(map[int] bool)// set
 	for _, val := range(set1){
 		intersec[val] = true
-	}
+	}// add set1 to summary set
 	for _, val := range(set2){
 		intersec[val] = true
-	}
+	}// add set2 to summary set
 	keys := make([]int, 0, len(intersec))
 	for k := range intersec {
 		keys = append(keys, k)

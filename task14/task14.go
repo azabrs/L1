@@ -2,10 +2,12 @@ package main
 
 import "fmt"
 
+//first way
 func determineType1(val interface{}){
 	fmt.Printf("type of the variable is %T\n", val)
 }
 
+//second way
 func determineType2(val interface{}){
 	switch val.(type){
 	case string:

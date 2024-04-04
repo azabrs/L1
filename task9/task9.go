@@ -5,6 +5,7 @@ import (
 	"sync"
 )
 
+// send data to next conveyor step
 func pipelneBegin(in <-chan int, out chan<- int){
 	for{
 		if buf, opened := <-in; opened{
@@ -17,7 +18,7 @@ func pipelneBegin(in <-chan int, out chan<- int){
 	}
 	close(out)
 }
-
+// computes square of number
 func pipelneEnd(in <-chan int, s *sync.WaitGroup){
 	for{
 		if buf, opened := <-in; opened{

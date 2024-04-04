@@ -8,7 +8,7 @@ func quiksort(arr []int) []int{
 	if len(arr) == 1 || len(arr) == 0{
 		return arr
 	}
-	pivot := arr[len(arr) / 2]
+	pivot := arr[len(arr) / 2] // select the pivot  as the middle value
 	var left, right, res []int 
 	for _, val := range arr{
 		if val < pivot{
@@ -17,7 +17,7 @@ func quiksort(arr []int) []int{
 			right = append(right, val)
 		}
 	}
-	return append(append(append(res, quiksort(left)...), pivot), quiksort(right)...)
+	return append(append(append(res, quiksort(left)...), pivot), quiksort(right)...) // create new slice = quiksort(left) + pivot + quiksort(right)
 }
 
 func main(){

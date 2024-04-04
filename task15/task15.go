@@ -22,7 +22,9 @@ func createHugeString(size int) string {
 
 func someFunc() {
 	v := createHugeString(1 << 10)
+	//use []rune for avoid problem with not ASCII symbol
   	justString = string(append([]rune{}, []rune(v)[:100]...))
+	// copy
   	//justString = v[:100]
 	fmt.Println(unsafe.StringData(v))
 	
